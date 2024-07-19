@@ -1,0 +1,1 @@
+gemini-code-explain -gopkg github.com/emicklei/structexplorer@v0.1.0
