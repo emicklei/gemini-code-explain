@@ -21,5 +21,13 @@ Here is how to [get a Gemini API Key](https://ai.google.dev/gemini-api/docs/api-
 - [dot package](examples/dot@v1.6.2.md)
 - [mox application](examples/mox@v0.0.11.md)
 - [structexplorer tool](examples/structexplorer@v0.1.0.md)
+- [proto package](examples/proto@v1.13.2.md)
+
+## how it works
+
+After downloading the package sources, I will create an LLM context window with all sources:
+- skipping all *_test.go files
+- stripping the bodies for each declared function found in the remaining *.go files
+- asking the LLM model to `describe the design of this Go software` (prompt).
 
 © 2024, [ernestmicklei.com](http://ernestmicklei.com).  MIT License. Contributions welcome.

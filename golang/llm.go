@@ -69,7 +69,11 @@ func explainGoPackageIn(dir string, excluded []string, out string) error {
 			if err != nil {
 				return fmt.Errorf("failed to read file:%w", err)
 			}
-			ctxParts = append(ctxParts, genai.Text(string(src)))
+			bodyless, err := sourceWithoutFunctionBodies(path, string(src))
+			if err != nil {
+				return fmt.Errorf("failed to parse file:%w", err)
+			}
+			ctxParts = append(ctxParts, genai.Text(bodyless))
 		}
 		return nil
 	})
