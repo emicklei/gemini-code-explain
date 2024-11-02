@@ -17,14 +17,24 @@ import (
 )
 
 //go:embed prompt.txt
-var prompt string
+var defaultPrompt string
 
-func explainGoPackageIn(dir string, excluded []string, out string) error {
+func explainGoPackageIn(dir string, excluded []string, out string, promptFilename string) error {
 	ctx := context.Background()
 
 	modelName := os.Getenv("GEMINI_MODEL")
 	if modelName == "" {
 		modelName = "gemini-1.5-pro"
+	}
+
+	prompt := defaultPrompt
+	if promptFilename != "" {
+		log.Println("reading prompt from", promptFilename)
+		data, err := os.ReadFile(promptFilename)
+		if err != nil {
+			return err
+		}
+		prompt = string(data)
 	}
 
 	client, err := genai.NewClient(ctx, option.WithAPIKey(os.Getenv("GEMINI_API_KEY")))

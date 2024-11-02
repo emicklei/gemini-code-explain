@@ -10,7 +10,7 @@ import (
 	"golang.org/x/mod/module"
 )
 
-func Explain(gopkg string) error {
+func Explain(gopkg string, promptFilename string) error {
 	log.Println("ensure downloaded", gopkg, "...")
 	if err := exec.Command("go", "mod", "download", gopkg).Run(); err != nil {
 		return err
@@ -32,7 +32,7 @@ func Explain(gopkg string) error {
 	}
 	abspath := path.Join(getGoPath(), modpath)
 	pkgname := path.Base(modpath)
-	return explainGoPackageIn(abspath, []string{}, pkgname+".md")
+	return explainGoPackageIn(abspath, []string{}, pkgname+".md", promptFilename)
 }
 
 func getGoPath() string {

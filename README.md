@@ -30,4 +30,8 @@ After downloading the package sources, I will create an LLM context window with 
 - stripping the bodies for each declared function found in the remaining *.go files
 - asking the LLM model to `describe the design of this Go software` (prompt).
 
+## custom prompt
+
+    GEMINI_API_KEY=YOUR_TOKEN gemini-code-explain -prompt myprompt.txt -gopkg github.com/emicklei/dot@v1.6.2
+
 © 2024, [ernestmicklei.com](http://ernestmicklei.com).  MIT License. Contributions welcome.
