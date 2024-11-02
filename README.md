@@ -22,6 +22,7 @@ Here is how to [get a Gemini API Key](https://ai.google.dev/gemini-api/docs/api-
 - [mox application](examples/mox@v0.0.11.md)
 - [structexplorer tool](examples/structexplorer@v0.1.0.md)
 - [proto package](examples/proto@v1.13.2.md)
+- [melrōse tool (custom prompt)](examples/melrose@v0.55.1.md)
 
 ## how it works
 
