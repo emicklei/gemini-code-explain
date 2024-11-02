@@ -28,7 +28,7 @@ Here is how to [get a Gemini API Key](https://ai.google.dev/gemini-api/docs/api-
 
 After downloading the package sources, I will create an LLM context window with all sources:
 - skipping all *_test.go files
-- stripping the bodies for each declared function found in the remaining *.go files
+- stripping the bodies for each declared function found in the remaining *.go files (less tokens to pay for)
 - asking the LLM model to `describe the design of this Go software` (prompt).
 
 ## custom prompt
